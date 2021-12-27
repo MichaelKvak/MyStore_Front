@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
-  "dependencies": {
+  "dependencies": {    
     "axios": "^0.24.0",
     "buefy": "^0.9.13",
     "vue": "^2.6.11",
