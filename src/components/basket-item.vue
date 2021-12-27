@@ -10,19 +10,21 @@
             <a href="#" class="mini-cart__product-name">{{
               basket_item_data.title
             }}</a>
-            <div class="mini-cart__product-info-item">
-              <span>{{ basket_item_data.brand }}</span>
-            </div>
+            <span>{{ basket_item_data.brand }}</span>
             <div class="mini-cart__product-info-item">
               <span>{{ basket_item_data.description }}</span>
+
+              <span>in store: {{ basket_item_data.quantity }}</span>
+
+              <span>in basket: {{ basket_item_data.qnt }}</span>
             </div>
-            <div class="mini-cart__product-info-item">
-              <span>in store:</span>
-              <span>{{ basket_item_data.quantity }}</span>
-            </div>
-            <div class="mini-cart__product-info-item">
-              <span>in basket:</span>
-              <span>{{ basket_item_data.qnt }}</span>
+            <div class="incBtn">
+              <span @click="decrement" class="decBtn"
+                ><img src="../../img/minus.png" alt="minus"
+              /></span>
+              <span @click="increment"
+                ><img src="../../img/plus.png" alt="plus"
+              /></span>
             </div>
             <div class="mini-cart__product-price">
               {{ basket_item_data.price }} $
@@ -43,8 +45,6 @@
       </div>
     </div>
   </div>
-
-  <!-- </div> -->
 </template>
 <script>
 export default {
@@ -63,6 +63,12 @@ export default {
   },
   computed: {},
   methods: {
+    decrement() {
+      this.$emit("decrement");
+    },
+    increment() {
+      this.$emit("increment");
+    },
     deleteFromBasket() {
       this.$emit("deleteFromBasket");
     },
@@ -112,6 +118,9 @@ export default {
 }
 
 .mini-cart__product-info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-bottom: 10px;
   color: #888;
 }
@@ -133,5 +142,16 @@ export default {
 
 .deleteBtn {
   margin: 5px;
+}
+.incBtn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1px;
+}
+.decBtn {
+  margin: 2px;
 }
 </style>

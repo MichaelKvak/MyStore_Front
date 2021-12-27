@@ -26,6 +26,14 @@
             <br />
             <small>Product quantity - {{ storeQuantity }}</small>
           </div>
+          <button>
+            <a
+              href="/"
+              class="mini-cart__controls-link mini-cart__controls-link--secondary"
+            >
+              Checkout
+            </a>
+          </button>
         </div>
       </div>
     </b-modal>
@@ -91,6 +99,7 @@ export default {
             storeDescription: this.storeDescription,
           });
         }
+        this.$router.push({ name: "List" });
       } catch {
         this.errorMessage = "Saving error";
       }
@@ -111,7 +120,6 @@ export default {
       }
     }
   },
-  // this.$router.push({ name: "List" });
 };
 </script>
 <style scoped></style>

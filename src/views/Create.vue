@@ -107,6 +107,7 @@ export default {
       } catch {
         this.errorMessage = "Saving error";
       }
+      window.location.reload();
     },
   },
   async mounted() {

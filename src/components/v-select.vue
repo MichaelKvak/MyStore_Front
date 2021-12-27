@@ -57,7 +57,6 @@ export default {
   width: 200px;
   cursor: pointer;
   z-index: 10;
-  /* left: -250px; */
 }
 .select p {
   margin: 0;

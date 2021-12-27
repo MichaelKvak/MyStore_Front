@@ -44,7 +44,6 @@
           <span> maxPrice: {{ maxPrice }}</span>
         </div>
       </div>
-      <!-- <p v-show="sortedProducts.length === 0">no product's with this price</p> -->
       <div class="product-list">
         <div v-for="store in filteredProducts" :key="store._id">
           <div class="product-item">
@@ -132,7 +131,7 @@ export default {
       selected: "All",
       sortedProducts: [],
       minPrice: 0,
-      maxPrice: 10000,
+      maxPrice: 3000,
       isCardModalActive: false,
     };
   },
@@ -367,6 +366,7 @@ hr {
   width: 500px;
   margin-top: 15px;
   position: relative;
+  left: 170px;
 }
 .range-slider svg,
 .range-slider input[type="range"] {

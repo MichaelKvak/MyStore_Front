@@ -36,10 +36,9 @@ export default {
     SET_Basket: (state, product) => {
       if (state.basket.length) {
         let exist = false;
-        state.basket.map(function (elm) {
-          if (elm._id === product._id) {
+        state.basket.map(function (elem) {
+          if (elem._id === product._id) {
             exist = true;
-            elm.qnt++;
           }
         });
         if (!exist) {
@@ -51,6 +50,14 @@ export default {
     },
     Remove_From_Basket: (state, index) => {
       state.basket.splice(index, 1);
+    },
+    IncrementItem: (state, index) => {
+      state.basket[index].qnt++;
+    },
+    DecrementItem: (state, index) => {
+      if (state.basket[index].qnt > 1) {
+        state.basket[index].qnt--;
+      }
     },
   },
   actions: {
@@ -202,6 +209,12 @@ export default {
     },
     DeleteFromBasket({ commit }, index) {
       commit("Remove_From_Basket", index);
+    },
+    Increment_Basket_Item({ commit }, index) {
+      commit("IncrementItem", index);
+    },
+    Decrement_Basket_Item({ commit }, index) {
+      commit("DecrementItem", index);
     },
   },
 };
